@@ -31,8 +31,11 @@
         imgSrc: '',
         imgTitle: ''
       },
+      created: function () {
+        this.fetchApod();
+      },
       methods: {
-        fetchApod: function() {
+        fetchApod: function () {
           const nasaApiKey = '1q4Q5OOSSPTgdo7pE1QFQunjkG49zzyrSBzW0OMN';
           const nasaUrl = 'https://api.nasa.gov/planetary/apod?api_key=' + nasaApiKey;
 
