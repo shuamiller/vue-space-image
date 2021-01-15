@@ -20,17 +20,28 @@
       margin: 1em;
     }
 
+    #container {
+      width: 100%;
+    }
+
     img {
       width: 100%;
+      height: auto;
     }
   </style>
 </head>
 <body>
   <div id="app">
     <h1>Welcome to APOD</h1>
-    <div>
-      <div id="title-div">T</div>
-      <div id="description-div">D</div>
+    <div id="container">
+      <div id="title-div" class="info-div">
+        <div id="title-ball" class="info-ball">T</div>
+        <p>{{imgTitle}}</p>
+      </div>
+      <div id="description-div" class="info-div">
+        <div id="description-ball" class="info-ball">D</div>
+        <p>{{imgDescription}}</p>
+      </div>
       <img :src="imgSrc" :title="imgTitle">
     </div>
   </div>
@@ -43,7 +54,8 @@
       el: '#app',
       data: {
         imgSrc: '',
-        imgTitle: ''
+        imgTitle: '',
+        imgDescription: ''
       },
       created: function () {
         this.fetchApod();
@@ -58,6 +70,7 @@
             console.log(res);
             app.imgSrc = res.data.url;
             app.imgTitle = res.data.title;
+            app.imgDescription = res.data.explanation;
           });
         }
       }
