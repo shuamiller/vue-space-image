@@ -12,7 +12,10 @@
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
   <script>
-    var app = new Vue({
+    const nasaApiKey = '1q4Q5OOSSPTgdo7pE1QFQunjkG49zzyrSBzW0OMN';
+    const nasaUrl = 'https://api.nasa.gov/planetary/apod?api_key=' + nasaApiKey;
+
+    const app = new Vue({
       el: '#app',
       data: {
 
