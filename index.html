@@ -4,6 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Astronomy Picture of the Day</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    img {
+      width: 100%;
+    }
+  </style>
 </head>
 <body>
   <div id="app">
@@ -22,14 +32,18 @@
       data: {
         imgSrc: '',
         imgTitle: ''
+      },
+      methods: {
+        fetchApod: function {
+          axios.get(nasaUrl)
+          .then(function (res) {
+            app.imgSrc = res.data.url;
+            app.imgTitle = res.data.title;
+          });
+        }
       }
     });
 
-    axios.get(nasaUrl)
-    .then(function (res) {
-      app.imgSrc = res.data.url;
-      app.imgTitle = res.data.title;
-    });
   </script>
 </body>
 </html>
