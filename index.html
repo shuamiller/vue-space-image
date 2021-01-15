@@ -27,9 +27,9 @@
 
     axios.get(nasaUrl)
     .then(function (res) {
-      vue.imgSrc = res.data.url;
-      vue.imgTitle = res.data.title;
-    })
+      app.imgSrc = res.data.url;
+      app.imgTitle = res.data.title;
+    });
   </script>
 </body>
 </html>
