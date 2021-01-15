@@ -10,6 +10,16 @@
       padding: 0;
     }
 
+    body {
+      background-color: rgb(43, 43, 43);
+    }
+
+    h1 {
+      color: blanchedalmond;
+      text-align: center;
+      margin: 1em;
+    }
+
     img {
       width: 100%;
     }
@@ -18,7 +28,11 @@
 <body>
   <div id="app">
     <h1>Welcome to APOD</h1>
-    <img :src="imgSrc" :title="imgTitle">
+    <div>
+      <div id="title-div">T</div>
+      <div id="description-div">D</div>
+      <img :src="imgSrc" :title="imgTitle">
+    </div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
@@ -41,6 +55,7 @@
 
           axios.get(nasaUrl)
           .then(function (res) {
+            console.log(res);
             app.imgSrc = res.data.url;
             app.imgTitle = res.data.title;
           });
